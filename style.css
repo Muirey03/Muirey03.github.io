@@ -16,9 +16,7 @@ html {
 
 #terminal-content {
 	position: absolute;
-	left: 5%;
-	top: 5%;
-	width: 90%;
+	margin: 40px 40px 40px 40px;
 }
 
 #terminal-text {
