@@ -1,0 +1,43 @@
+body {
+	background-color: black;
+}
+
+#terminal {
+	background-color: #161618;
+	position: absolute;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	width: 80%;
+	height: 60%;
+	left: 10%;
+	top: 20%;
+	border-radius: 25px;
+}
+
+#terminal-content {
+	position: absolute;
+	left: 5%;
+	top: 5%;
+	width: 90%;
+}
+
+#terminal-text {
+	display: inline;
+}
+
+#terminal p, #terminal a {
+	font-family: 'Roboto Mono', monospace;
+	font-size: x-large;
+	word-wrap: break-word;
+	display: inline;
+}
+
+#terminal-text ::selection {
+	background-color: white;
+	color: #ff00d0;
+}
+
+#cursor::selection {
+	background-color: rgba(0, 0, 0, 0);
+	color: white;
+}
