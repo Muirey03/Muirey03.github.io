@@ -69,26 +69,18 @@ function start()
 	let mainOutput = "*** Tommy Muir (Muirey03) ***\n";
 	mainOutput += "*** iOS Tweak Developer ***\n";
 	appendToTerminal("./muirey03\n" + mainOutput, whiteColor, true, function() {
-		/*var link1;
-		link1 = appendToTerminal("@Muirey03 Twitter\n", whiteColor, true, function() {
-			link1.href = "https://twitter.com/Muirey03";
-			link1.target = "_blank";
-			printUsername();
-		}, "a");*/
-
 		links = [
-			"https://twitter.com/Muirey03",
-			"https://twitter.com/Squ1dd13",
-			"https://twitter.com/jamiebishop123"
+			["@Muirey03 on Twitter", "https://twitter.com/Muirey03"],
+			["Muirey03 on GitHub", "https://github.com/Muirey03"]
 		];
 		var i = 0;
 		var comp;
 		comp = function() {
 			var newComp = i + 1 < links.length ? comp : printUsername;
 			appendToTerminal("- ", whiteColor, true, function() {
-				let linkElem = appendToTerminal(links[i] + "\n", whiteColor, true, newComp, "a");
+				let linkElem = appendToTerminal(links[i][0] + "\n", whiteColor, true, newComp, "a");
 				linkElem.target = "_blank";
-				linkElem.href = links[i];
+				linkElem.href = links[i][1];
 				i++;
 			});
 		};
