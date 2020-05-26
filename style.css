@@ -5,13 +5,18 @@ html {
 #terminal {
 	background-color: #161618;
 	position: absolute;
-	overflow-y: hidden;
+	overflow-y: scroll;
 	overflow-x: hidden;
 	width: 80%;
 	height: 80%;
 	left: 10%;
 	top: 10%;
 	border-radius: 25px;
+	scrollbar-width: none;
+}
+
+#terminal::-webkit-scrollbar {
+	display: none;
 }
 
 #terminal-content {

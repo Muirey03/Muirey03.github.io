@@ -44,7 +44,8 @@ function terminalPrint(str, completion = null)
 {
 	appendToTerminal(str + "\n", whiteColor, true, function() {
 		printUsername();
-		completion();
+		if (completion != null)
+			completion();
 	});
 }
 
@@ -61,6 +62,40 @@ function setupCursor()
 	}, 600);
 }
 
+function printLinks(links, completion = null)
+{
+	var i = 0;
+	var comp;
+	comp = function() {
+		var newComp = i + 1 < links.length ? comp : completion;
+		appendToTerminal("- ", whiteColor, true, function() {
+			let linkElem = appendToTerminal(links[i][0] + "\n", whiteColor, true, newComp, "a");
+			if (!links[i][1].startsWith("javascript:"))
+				linkElem.target = "_blank";
+			linkElem.href = links[i][1];
+			i++;
+		});
+	};
+	comp();
+}
+
+function printTweaks()
+{
+	let mainOutput = "*** My Tweaks ***\n";
+	appendToTerminal("./mytweaks\n" + mainOutput, whiteColor, true, function() {
+		links = [
+			["Arc", "https://repo.dynastic.co/package/arc"],
+			["Flow", "https://repo.packix.com/package/com.muirey03.flow"],
+			["Centaur", "https://repo.packix.com/package/com.muirey03.centaur"],
+			["Zenith", "https://repo.packix.com/package/com.muirey03.zenith"],
+			["Cr4shed", "https://repo.packix.com/package/com.muirey03.cr4shed"]
+		];
+		printLinks(links, function() {
+			printUsername();
+		});
+	});
+}
+
 function start()
 {
 	setupCursor();
@@ -71,19 +106,11 @@ function start()
 	appendToTerminal("./muirey03\n" + mainOutput, whiteColor, true, function() {
 		links = [
 			["@Muirey03 on Twitter", "https://twitter.com/Muirey03"],
-			["Muirey03 on GitHub", "https://github.com/Muirey03"]
+			["Muirey03 on GitHub", "https://github.com/Muirey03"],
+			["My Tweaks", "javascript:printTweaks();"]
 		];
-		var i = 0;
-		var comp;
-		comp = function() {
-			var newComp = i + 1 < links.length ? comp : printUsername;
-			appendToTerminal("- ", whiteColor, true, function() {
-				let linkElem = appendToTerminal(links[i][0] + "\n", whiteColor, true, newComp, "a");
-				linkElem.target = "_blank";
-				linkElem.href = links[i][1];
-				i++;
-			});
-		};
-		comp();
+		printLinks(links, function() {
+			printUsername();
+		});
 	});
 }
