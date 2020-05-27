@@ -96,6 +96,23 @@ function printTweaks()
 	});
 }
 
+function printOSSProjects()
+{
+	let mainOutput = "*** Open-source projects ***\n";
+	appendToTerminal("./ossprojects\n" + mainOutput, whiteColor, true, function() {
+		links = [
+			["Cr4shed", "https://github.com/Muirey03/Cr4shed"],
+			["LearnAI", "https://github.com/Muirey03/LearnAI"],
+			["Amandus", "https://github.com/Muirey03/Amandus"],
+			["MRYIPC", "https://github.com/Muirey03/MRYIPC"],
+			["And more!", "https://github.com/Muirey03?tab=repositories"]
+		];
+		printLinks(links, function() {
+			printUsername();
+		});
+	});
+}
+
 function start()
 {
 	setupCursor();
@@ -105,9 +122,10 @@ function start()
 	mainOutput += "*** iOS Tweak Developer ***\n";
 	appendToTerminal("./muirey03\n" + mainOutput, whiteColor, true, function() {
 		links = [
-			["@Muirey03 on Twitter", "https://twitter.com/Muirey03"],
+			["My Tweaks", "javascript:printTweaks();"],
+			["Open-source projects", "javascript:printOSSProjects();"],
 			["Muirey03 on GitHub", "https://github.com/Muirey03"],
-			["My Tweaks", "javascript:printTweaks();"]
+			["@Muirey03 on Twitter", "https://twitter.com/Muirey03"],
 		];
 		printLinks(links, function() {
 			printUsername();
