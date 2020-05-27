@@ -113,6 +113,21 @@ function printOSSProjects()
 	});
 }
 
+function printSecurity()
+{
+	let mainOutput = "*** Security research ***\n";
+	appendToTerminal("./security\n" + mainOutput, whiteColor, true, function() {
+		links = [
+			["VLC buffer-overflow (CVE-2020-13428)", "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-13428"],
+			["IOAcceleratorFamily null-deref", "https://gist.github.com/Muirey03/8956c5a6e68b0b22677f27e174021013#file-nullderefpoc-m"],
+			["IOUSBFamily race-condition", "https://github.com/Muirey03/iousbpoc"]
+		];
+		printLinks(links, function() {
+			printUsername();
+		});
+	});
+}
+
 function start()
 {
 	setupCursor();
@@ -122,8 +137,9 @@ function start()
 	mainOutput += "*** iOS Tweak Developer ***\n";
 	appendToTerminal("./muirey03\n" + mainOutput, whiteColor, true, function() {
 		links = [
-			["My Tweaks", "javascript:printTweaks();"],
+			["iOS runtime modifications", "javascript:printTweaks();"],
 			["Open-source projects", "javascript:printOSSProjects();"],
+			["Security research", "javascript:printSecurity();"],
 			["Muirey03 on GitHub", "https://github.com/Muirey03"],
 			["@Muirey03 on Twitter", "https://twitter.com/Muirey03"],
 		];
