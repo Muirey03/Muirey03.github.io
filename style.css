@@ -1,17 +1,11 @@
 html {
-	background-color: black;
+	background-color: #161618;
 }
 
 #terminal {
 	background-color: #161618;
-	position: absolute;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	width: 80%;
-	height: 80%;
-	left: 10%;
-	top: 10%;
-	border-radius: 25px;
 	scrollbar-width: none;
 }
 
@@ -30,9 +24,9 @@ html {
 
 #terminal p, #terminal a {
 	font-family: 'Roboto Mono', monospace;
-	font-size: x-large;
 	word-wrap: break-word;
 	display: inline;
+	font-size: 15px;
 }
 
 #terminal-text ::selection {
@@ -43,4 +37,24 @@ html {
 #cursor::selection {
 	background-color: rgba(0, 0, 0, 0);
 	color: white;
+}
+
+/* Styling for desktop: */
+@media only screen and (min-width: 768px) {
+	#terminal {
+		position: absolute;
+		width: 80%;
+		height: 80%;
+		left: 10%;
+		top: 10%;
+		border-radius: 25px;
+	}
+
+	#terminal p, #terminal a {
+		font-size: 18px;
+	}
+
+	html {
+		background-color: black;
+	}	
 }
