@@ -118,6 +118,7 @@ function printSecurity()
 	let mainOutput = "*** Security research ***\n";
 	appendToTerminal("./security\n" + mainOutput, whiteColor, true, function() {
 		links = [
+			["iOS kernel infoleak (CVE-2020-9964)", "https://muirey03.blogspot.com/2020/09/cve-2020-9964-ios-infoleak.html"],
 			["VLC buffer-overflow (CVE-2020-13428)", "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-13428"],
 			["IOAcceleratorFamily null-deref", "https://gist.github.com/Muirey03/8956c5a6e68b0b22677f27e174021013#file-nullderefpoc-m"],
 			["IOUSBFamily race-condition", "https://github.com/Muirey03/iousbpoc"]
